@@ -6,10 +6,12 @@ export default function returnToOutpost(creep: Creep): void {
   });
 
   if (target) {
-    creep.moveTo(target.pos, { visualizePathStyle: { stroke: "#f40408" } });
-    if (!creep.pos.isNearTo(target)) {
+    if (creep.memory.working) {
+      creep.memory.working = false;
       creep.say("🏠");
     }
+
+    creep.moveTo(target.pos, { visualizePathStyle: { stroke: "#f40408" } });
   } else {
     creep.say("❓");
   }

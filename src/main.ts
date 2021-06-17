@@ -18,7 +18,7 @@ const units = {
   upgraders: {
     title: "Upgrader",
     role: "upgrader",
-    max: 5,
+    max: 3,
     body: [WORK, CARRY, MOVE]
   },
   bigUpgraders: {
@@ -30,20 +30,26 @@ const units = {
   builders: {
     title: "Builder",
     role: "builder",
-    max: 5,
+    max: 3,
     body: [WORK, CARRY, MOVE]
   },
   defenders: {
     title: "Defender",
     role: "defender",
-    max: 0,
-    body: [ATTACK, TOUGH, MOVE]
+    max: 2,
+    body: [TOUGH, ATTACK, MOVE]
+  },
+  bigDefenders: {
+    title: "Big Defender",
+    role: "defender",
+    max: 2,
+    body: [TOUGH, ATTACK, ATTACK, MOVE, MOVE, MOVE]
   },
   healers: {
     title: "Healer",
     role: "healer",
-    max: 0,
-    body: [HEAL, TOUGH, MOVE]
+    max: 1,
+    body: [TOUGH, HEAL, MOVE]
   }
 };
 
