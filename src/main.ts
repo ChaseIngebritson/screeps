@@ -10,28 +10,39 @@ const PRINT_TIME_FREQUENCY = 10;
 
 const units = {
   harvesters: {
+    title: "Harvester",
     role: "harvester",
-    max: 2,
+    max: 3,
     body: [WORK, CARRY, MOVE]
   },
   upgraders: {
+    title: "Upgrader",
     role: "upgrader",
     max: 5,
     body: [WORK, CARRY, MOVE]
   },
+  bigUpgraders: {
+    title: "Big Upgrader",
+    role: "upgrader",
+    max: 2,
+    body: [WORK, CARRY, CARRY, MOVE, MOVE, MOVE]
+  },
   builders: {
+    title: "Builder",
     role: "builder",
     max: 5,
     body: [WORK, CARRY, MOVE]
   },
   defenders: {
+    title: "Defender",
     role: "defender",
-    max: 1,
+    max: 0,
     body: [ATTACK, TOUGH, MOVE]
   },
   healers: {
+    title: "Healer",
     role: "healer",
-    max: 1,
+    max: 0,
     body: [HEAL, TOUGH, MOVE]
   }
 };
@@ -53,6 +64,7 @@ export const loop = ErrorMapper.wrapLoop(() => {
   spawnUnits(units.builders);
   spawnUnits(units.defenders);
   spawnUnits(units.healers);
+  spawnUnits(units.bigUpgraders);
 
   if (Game.spawns.Spawn1.spawning) {
     const spawningCreep = Game.creeps[Game.spawns.Spawn1.spawning.name];
