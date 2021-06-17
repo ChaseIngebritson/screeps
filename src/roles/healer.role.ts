@@ -1,3 +1,5 @@
+import returnToOutpost from "actions/returnToOutpost.action";
+
 const RoleHealer: Role = {
   run(creep: Creep): void {
     const target = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
@@ -14,9 +16,7 @@ const RoleHealer: Role = {
         creep.rangedHeal(target);
       }
     } else {
-      const outposts = creep.room.find(FIND_FLAGS);
-      const healerOutposts = _.filter(outposts, outpost => outpost.name.includes("healer"));
-      creep.moveTo(healerOutposts[0], { visualizePathStyle: { stroke: "#f40408" } });
+      returnToOutpost(creep);
     }
   }
 };

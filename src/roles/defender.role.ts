@@ -1,3 +1,5 @@
+import returnToOutpost from "actions/returnToOutpost.action";
+
 const RoleDefender: Role = {
   run(creep: Creep): void {
     const targets = creep.room.find(FIND_HOSTILE_CREEPS);
@@ -7,9 +9,7 @@ const RoleDefender: Role = {
         creep.moveTo(targets[0], { visualizePathStyle: { stroke: "#f40408" } });
       }
     } else {
-      const outposts = creep.room.find(FIND_FLAGS);
-      const defenderOutposts = _.filter(outposts, outpost => outpost.name.includes("defender"));
-      creep.moveTo(defenderOutposts[0], { visualizePathStyle: { stroke: "#f40408" } });
+      returnToOutpost(creep);
     }
   }
 };

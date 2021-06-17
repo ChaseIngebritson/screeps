@@ -1,3 +1,5 @@
+import returnToOutpost from "actions/returnToOutpost.action";
+
 const RoleHarvester: Role = {
   run(creep: Creep): void {
     if (creep.store.getFreeCapacity() > 0) {
@@ -22,6 +24,8 @@ const RoleHarvester: Role = {
         if (creep.transfer(targets[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
           creep.moveTo(targets[0], { visualizePathStyle: { stroke: "#ffffff" } });
         }
+      } else {
+        returnToOutpost(creep);
       }
     }
   }
