@@ -65,6 +65,7 @@ export const loop = ErrorMapper.wrapLoop(() => {
     }
   }
 
+  console.log("Spawning");
   spawnUnits(units.harvesters);
   spawnUnits(units.upgraders);
   spawnUnits(units.builders);
